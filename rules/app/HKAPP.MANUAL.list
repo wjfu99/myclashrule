@@ -1,0 +1,6 @@
+# Other
+DOMAIN-SUFFIX,xaoxuu.com
+DOMAIN-SUFFIX,hkali.utopeadia.com
+# VPS
+IP-CIDR,47.76.0.0/16,no-resolve
+IP-CIDR6,240b:4001:138:9100::/48,no-resolve

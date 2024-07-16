@@ -1,0 +1,263 @@
+name: Special-rule-update
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "30 4 * * *"
+
+jobs:
+  Update-Special-rule:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Download LLM(NoMSCopilot) rules
+        run: |
+          if  curl -f -s -o rules/app/OpenAI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list && [[ -s rules/app/OpenAI.list ]]; then
+            echo "DOMAIN-SUFFIX,openaiapi-site.azureedge.net" >> rules/app/OpenAI.list
+            echo >> rules/app/OpenAI.list
+            if  curl -f -s -o rules/app/Claude.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.list && [[ -s rules/app/Claude.list ]]; then
+              echo >> rules/app/Claude.list
+              if  curl -f -s -o rules/app/Gemini.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list && [[ -s rules/app/Gemini.list ]]; then
+                echo >> rules/app/Gemini.list
+                cat rules/app/OpenAI.list rules/app/Claude.list rules/app/Gemini.list rules/app/LLMProxy.MANUAL.list > rules/app/LLMProxy.list.new
+                mv -f rules/app/LLMProxy.list.new rules/app/LLMProxy.list
+                rm -f rules/app/OpenAI.list rules/app/Claude.list rules/app/Gemini.list
+              else
+                echo "Failed to download or empty Gemini.list, exiting."
+              fi
+            else
+              echo "Failed to download or empty Claude.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty OpenAI.list, exiting."
+          fi
+
+      - name: Download Bing and MicrosoftCopilot rules
+        run: |
+          if  curl -f -s -o rules/app/Copilot.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.list && [[ -s rules/app/Copilot.list ]]; then
+            echo "DOMAIN,designer.microsoft.com" >> rules/app/Copilot.list
+            echo "DOMAIN,copilot-telemetry.githubusercontent.com" >> rules/app/Copilot.list
+            echo "DOMAIN-SUFFIX,copilot-telemetry.githubusercontent.com" >> rules/app/Copilot.list
+            echo >> rules/app/Copilot.list
+            if  curl -f -s -o rules/app/Bing.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.list && [[ -s rules/app/Bing.list ]]; then
+              echo >> rules/app/Bing.list
+              if  curl -f -s -o rules/app/Edge.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MicrosoftEdge/MicrosoftEdge.list && [[ -s rules/app/Edge.list ]]; then
+                echo >> rules/app/Edge.list
+                cat rules/app/Copilot.list rules/app/Bing.list rules/app/Edge.list > rules/app/BingMSCopilot.list.new
+                mv -f rules/app/BingMSCopilot.list.new rules/app/BingMSCopilot.list
+                rm -f rules/app/Copilot.list rules/app/Bing.list rules/app/Edge.list
+              else
+                echo "Failed to download or empty Edge.list, exiting."
+              fi
+            else
+              echo "Failed to download or empty Bing.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty Copilot.list, exiting."
+          fi
+        
+      - name: Download Game rules
+        run: |
+          if  curl -f -s -o rules/app/Game.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list && [[ -s rules/app/Game.list.new ]]; then
+            mv -f rules/app/Game.list.new rules/app/Game.list
+          else
+            echo "Failed to download or empty Game.list, exiting."
+          fi
+            
+
+      - name: Download GameDLCN rules
+        run: |
+          if  curl -f -s -o rules/app/SteamCN.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list && [[ -s rules/app/SteamCN.list ]]; then
+            if curl -f -s -o rules/app/GameDownloadCN.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.list && [[ -s rules/app/GameDownloadCN.list ]]; then
+              echo >> rules/app/SteamCN.list
+              echo >> rules/app/GameDownloadCN.list
+              cat rules/app/SteamCN.list rules/app/GameDownloadCN.list rules/app/GameDLCN.MANUAL.list > rules/app/GameDLCN.list.new
+              mv -f rules/app/GameDLCN.list.new rules/app/GameDLCN.list
+              rm -f rules/app/SteamCN.list rules/app/GameDownloadCN.list
+            else
+              echo "Failed to download or empty GameDownloadCN.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty SteamCN.list, exiting."
+          fi
+      
+      - name: Download GameDL rules
+        run: |
+          if  curl -f -s -o rules/app/GameDL.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.list && [[ -s rules/app/GameDL.list.new ]]; then
+            mv -f rules/app/GameDL.list.new rules/app/GameDL.list
+          else
+            echo "Failed to download or empty GameDownload.list, exiting."
+          fi
+
+      - name: Download CNAPP rules
+        run: |
+          if  curl -f -s -o rules/app/Meituan.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MeiTuan/MeiTuan.list && [[ -s rules/app/Meituan.list ]]; then
+            echo >> rules/app/Meituan.list
+            if  curl -f -s -o rules/app/WeChat.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.list && [[ -s rules/app/WeChat.list ]]; then
+              echo >> rules/app/WeChat.list
+              cat rules/app/Meituan.list rules/app/WeChat.list > rules/app/CNAPP.list.new
+              echo "# other" >> rules/app/CNAPP.list.new
+              echo "DOMAIN-SUFFIX,hcaptcha.com" >> rules/app/CNAPP.list.new
+              mv -f rules/app/CNAPP.list.new rules/app/CNAPP.list
+              rm -f rules/app/Meituan.list rules/app/WeChat.list
+            else
+              echo "Failed to download or empty WeChat.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty Meituan.list, exiting."
+          fi
+
+      - name: Download USAPP rules
+        run: |
+          if  curl -f -s -o rules/app/TwitterAndX.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.list && [[ -s rules/app/TwitterAndX.list ]]; then
+            if  curl -f -s -o rules/app/Instagram.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.list && [[ -s rules/app/Instagram.list ]]; then
+              if  curl -f -s -o rules/app/GoogleVoice.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleVoice/GoogleVoice.list && [[ -s rules/app/GoogleVoice.list ]]; then
+                echo >> rules/app/GoogleVoice.list
+                echo >> rules/app/Instagram.list
+                echo >> rules/app/TwitterAndX.list
+                cat rules/app/GoogleVoice.list rules/app/TwitterAndX.list rules/app/Instagram.list rules/app/USAPP.MANUAL.list > rules/app/USAPP.list.new
+                mv -f rules/app/USAPP.list.new rules/app/USAPP.list
+                rm -f rules/app/GoogleVoice.list rules/app/TwitterAndX.list rules/app/Instagram.list
+              else
+                echo "Failed to download or empty GoogleVoice.list, exiting."
+              fi
+            else
+              echo "Failed to download or empty Instagram.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty TwitterAndX.list, exiting."
+          fi
+
+      - name: Download UKAPP rules
+        run: |
+          cp rules/app/UKAPP.MANUAL.list rules/app/UKAPP.list.new
+          mv -f rules/app/UKAPP.list.new rules/app/UKAPP.list
+
+      - name: Download JPAPP rules
+        run: |
+          cp rules/app/JPAPP.MANUAL.list rules/app/JPAPP.list.new
+          mv -f rules/app/JPAPP.list.new rules/app/JPAPP.list
+
+      - name: Download HKAPP rules
+        run: |
+          if curl -f -s -o rules/app/HKV4.txt https://ispip.clang.cn/hk_cidr.txt && [[ -s rules/app/HKV4.txt ]]; then
+            sed -i '/^[0-9.]\+\/[0-9]\+$/!d' rules/app/HKV4.txt
+            sed -i 's/^/IP-CIDR,/' rules/app/HKV4.txt
+            sed -i 's/$/,no-resolve/' rules/app/HKV4.txt
+            echo >> rules/app/HKV4.txt
+            if curl -f -s -o rules/app/HKV6.txt https://ispip.clang.cn/hk_ipv6.txt && [[ -s rules/app/HKV6.txt ]]; then
+              sed -i '/^[0-9a-f:]\+\/[0-9]\+$/!d' rules/app/HKV6.txt
+              sed -i 's/^/IP-CIDR6,/' rules/app/HKV6.txt
+              sed -i 's/$/,no-resolve/' rules/app/HKV6.txt
+              echo >> rules/app/HKV6.txt
+              cat rules/app/HKV4.txt rules/app/HKV6.txt rules/app/HKAPP.MANUAL.list > rules/app/HKAPP.list.new
+              mv -f rules/app/HKAPP.list.new rules/app/HKAPP.list
+              rm -f rules/app/HKV4.txt rules/app/HKV6.txt
+            else
+              echo "Failed to download or empty hk_ipv6.txt, exiting."
+            fi
+          else
+            echo "Failed to download or empty hk_cidr.txt, exiting."
+          fi
+
+      - name: Download eBay rules
+        run: |
+          if  curl -f -s -o rules/app/eBay.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/eBay/eBay.list && [[ -s rules/app/eBay.list.new ]]; then
+            echo "DOMAIN-KEYWORD,ebay" >> rules/app/eBay.list.new
+            echo "DOMAIN-KEYWORD,e-bay" >> rules/app/eBay.list.new
+            echo "DOMAIN-SUFFIX,perfdrive.com" >> rules/app/eBay.list.new
+            echo "DOMAIN-SUFFIX,forter.com" >> rules/app/eBay.list.new
+            echo "DOMAIN-KEYWORD,forter" >> rules/app/eBay.list.new
+            mv -f rules/app/eBay.list.new rules/app/eBay.list
+          else
+            echo "Failed to download or empty eBay.list, exiting."
+          fi
+
+      - name: Download Telegram rules
+        run: |
+          if  curl -f -s -o rules/app/telegramcidr.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt && [[ -s rules/app/telegramcidr.txt ]]; then
+            echo "" > rules/app/telegramcidr.list.new
+            while IFS= read -r line; 
+            do
+              ip=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g"| sed "s/ //g")
+              if [[ $ip =~ .*:.* ]]
+              then
+                echo "IP-CIDR6,$ip,no-resolve" >> rules/app/telegramcidr.list.new
+              else
+                echo "IP-CIDR,$ip,no-resolve" >> rules/app/telegramcidr.list.new
+              fi
+            done < <(tail -n +2 rules/app/telegramcidr.txt)
+            mv -f rules/app/telegramcidr.list.new rules/app/telegramcidr.list
+            sed -i '/^$/d' rules/app/telegramcidr.list
+            rm -f rules/app/telegramcidr.list.new rules/app/telegramcidr.txt
+            if  curl -f -s -o rules/app/telegramdomain.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list && [[ -s rules/app/telegramdomain.list ]]; then
+              cat rules/app/telegramcidr.list rules/app/telegramdomain.list > rules/app/telegram.list.new
+              mv -f rules/app/telegram.list.new rules/app/telegram.list
+              rm -f rules/app/telegramcidr.list rules/app/telegramdomain.list
+            else
+              echo "Failed to download or empty telegramdomain.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty telegramcidr.txt, exiting."
+          fi
+
+      - name: Download AppleandIcloud rules
+        run: |
+          if curl -f -s -o rules/app/Apple.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.list && [[ -s rules/app/Apple.list.new ]]; then
+            mv -f rules/app/Apple.list.new rules/app/Apple.list
+          else
+            echo "Failed to download or empty Apple.list, exiting."
+          fi
+      
+      - name: Download Google rules
+        run: |
+          if curl -f -s -o rules/app/Google.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list && [[ -s rules/app/Google.list.new ]]; then
+            mv -f rules/app/Google.list.new rules/app/Google.list
+          else
+            echo "Failed to download or empty Google.list, exiting."
+          fi
+
+      - name: Download Youtube rules
+        run: |
+          if curl -f -s -o rules/app/Youtube.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.list && [[ -s rules/app/Youtube.list.new ]]; then
+            mv -f rules/app/Youtube.list.new rules/app/Youtube.list
+          else
+            echo "Failed to download or empty Youtube.list, exiting."
+          fi
+      
+      - name: Download Onedrive rules
+        run: |
+          if curl -f -s -o rules/app/OneDrive.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.list && [[ -s rules/app/OneDrive.list.new ]]; then
+            mv -f rules/app/OneDrive.list.new rules/app/OneDrive.list
+          else
+            echo "Failed to download or empty OneDrive.list, exiting."
+          fi
+      
+      - name: Download Microsoft rules
+        run: |
+          if curl -f -s -o rules/app/Microsoft.list.new https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list && [[ -s rules/app/Microsoft.list.new ]]; then
+            mv -f rules/app/Microsoft.list.new rules/app/Microsoft.list
+          else
+            echo "Failed to download or empty Microsoft.list, exiting."
+          fi
+
+      - name: Add changes to the repository
+        run: |
+          git add .
+          git status
+
+      - name: Commit and push changes
+        run: |
+          git commit -m "Special-rule-update" -a
+          git push

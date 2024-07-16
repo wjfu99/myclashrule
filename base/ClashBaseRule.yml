@@ -1,0 +1,142 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+allow-lan: false
+bind-address: '*'
+ipv6: true
+external-controller: 127.0.0.1:9090
+mode: rule
+log-level: info
+profile:
+  store-selected: true
+  store-fake-ip: true
+tcp-concurrent: true
+unified-delay: true
+global-client-fingerprint: chrome
+global-ua: mihomo
+geo-auto-update: true
+geodata-mode: false
+geo-update-interval: 12
+geox-url:
+  geoip: 'https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat'
+  geosite: 'https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat'
+  mmdb: 'https://testingcf.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb'
+dns:
+  enable: true
+  prefer-h3: false
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://1.1.1.1/dns-query
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 1.1.1.1
+  nameserver:
+    - system
+    - dhcp://system
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
+  fallback-filter:
+    geoip: false
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.ai.com'
+      - '+.algolia.net'
+      - '+.anthropic.com'
+      - '+.argotunnel.com'
+      - '+.arkoselabs.com'
+      - '+.auth0.com'
+      - '+.azure.com'
+      - '+.azureedge.net'
+      - '+.bing.com'
+      - '+.bingapis.com'
+      - '+.bugsnag.com'
+      - '+.chatgpt.com'
+      - '+.claude.ai'
+      - '+.cloudflare.net'
+      - '+.cloudflareinsights.com'
+      - '+.cohere.ai'
+      - '+.docker.com'
+      - '+.docker.io'
+      - '+.facebook.com'
+      - '+.github.com'
+      - '+.githubusercontent.com'
+      - '+.google'
+      - '+.google.com'
+      - '+.google.dev'
+      - '+.googleapis.cn'
+      - '+.googlevideo.com'
+      - '+.identrust.com'
+      - '+.instagram.com'
+      - '+.intercom.io'
+      - '+.live.com'
+      - '+.livekit.cloud'
+      - '+.microsoft.com'
+      - '+.microsoftapp.net'
+      - '+.minecraft.net'
+      - '+.msn.com'
+      - '+.openai.com'
+      - '+.poe.com'
+      - '+.segment.com'
+      - '+.segment.io'
+      - '+.sentry.io'
+      - '+.synn.cc'
+      - '+.stripe.com'
+      - '+.t.me'
+      - '+.tailscale.com'
+      - '+.tailscale.io'
+      - '+.twitter.com'
+      - '+.usefathom.com'
+      - '+.v2ex.com'
+      - '+.windows.net'
+      - '+.wootric.com'
+      - '+.x.com'
+      - '+.xn--ngstr-lra8j.com'
+      - '+.youtube.com'
+  sniffer:
+    enable: true
+    force-dns-mapping: true
+    parse-pure-ip: true
+    override-destination: false
+    sniff:
+      HTTP:
+        ports: [80, 8080-8880]
+        override-destination: true
+      TLS:
+        ports: [443, 8443]
+      QUIC:
+        ports: [443, 8443]
+    force-domain:
+      - +.v2ex.com
+      - +.google.com
+    skip-domain:
+      - Mijia Cloud
+      - dlg.io.mi.com
+      - +.apple.com
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  mtu: 1500
+  strict-route: true
+  include-package:
+    - com.android.chrome
+  exclude-package:
+    - com.android.captiveportallogin

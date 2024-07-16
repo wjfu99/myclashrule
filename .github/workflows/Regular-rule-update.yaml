@@ -1,0 +1,225 @@
+name: Regular-rule-update
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "30 6 * * *"
+
+jobs:
+  Update-Regular-rule:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Download LocalAreaNetwork rules
+        run: |
+          if curl -f -s -o rules/LocalAreaNetwork.list.new https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list && [[ -s rules/LocalAreaNetwork.list.new ]]; then
+            sed -i '/IP-CIDR,192.168.0.0\/16,no-resolve/d' rules/LocalAreaNetwork.list.new
+            mv -f rules/LocalAreaNetwork.list.new rules/LocalAreaNetwork.list
+          else
+            echo "Failed to download or empty LocalAreaNetwork.list, exiting."
+          fi
+
+
+      - name: Download MainProxy rules
+        run: |
+          if curl -f -s -o rules/MainProxy.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt && [[ -s rules/MainProxy.txt ]]; then
+            echo "" > rules/MainProxy.list.new
+            while IFS= read -r line; 
+            do
+              domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
+              if [[ $domain =~ ^\+\. ]]
+              then
+                # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
+                domain=${domain:2}
+                echo "DOMAIN-SUFFIX,$domain" >> rules/MainProxy.list.new
+              else
+                # 添加 "DOMAIN,"
+                echo "DOMAIN,$domain" >> rules/MainProxy.list.new
+              fi
+            done < <(tail -n +2 rules/MainProxy.txt)
+            mv -f rules/MainProxy.list.new rules/MainProxy.list
+            sed -i '/^$/d' rules/MainProxy.list
+            rm -f rules/MainProxy.txt
+          else
+            echo "Failed to download or empty MainProxy.txt, exiting."
+          fi
+
+      - name: Download DirectDomain rules
+        run: |
+          if curl -f -s -o rules/Direct.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt && [[ -s rules/Direct.txt ]]; then
+            if curl -f -s -o rules/ChinaMax.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax.list && [[ -s rules/ChinaMax.list ]]; then
+              echo "" > rules/Direct.list
+              while IFS= read -r line; 
+              do
+                domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
+                if [[ $domain =~ ^\+\. ]]
+                then
+                  # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
+                  domain=${domain:2}
+                  echo "DOMAIN-SUFFIX,$domain" >> rules/Direct.list
+                else
+                  # 添加 "DOMAIN,"
+                  echo "DOMAIN,$domain" >> rules/Direct.list
+                fi
+              done < <(tail -n +2 rules/Direct.txt)
+              sed -i '/^$/d' rules/Direct.list
+              echo >> rules/ChinaMax.list
+              cat rules/Direct.list rules/ChinaMax.list > rules/DirectDomain.list.new
+              mv -f rules/DirectDomain.list.new rules/DirectDomain.list
+              rm -f rules/Direct.txt rules/Direct.list rules/ChinaMax.list.new
+            else
+              echo "Failed to download or empty ChinaMax.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty Direct.txt, exiting."
+          fi
+
+      - name: Download GFWDomain rules
+        run: |
+          if curl -f -s -o rules/GFWDomain.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt && [[ -s rules/GFWDomain.txt ]]; then
+            echo "" > rules/GFWDomain.list.new
+            while IFS= read -r line; 
+            do
+              domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
+              if [[ $domain =~ ^\+\. ]]
+              then
+                # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
+                domain=${domain:2}
+                echo "DOMAIN-SUFFIX,$domain" >> rules/GFWDomain.list.new
+              else
+                # 添加 "DOMAIN,"
+                echo "DOMAIN,$domain" >> rules/GFWDomain.list.new
+              fi
+            done < <(tail -n +2 rules/GFWDomain.txt)
+            mv -f rules/GFWDomain.list.new rules/GFWDomain.list
+            sed -i '/^$/d' rules/GFWDomain.list
+            rm -f rules/GFWDomain.txt 
+          else
+            echo "Failed to download or empty GFWDomain.txt, exiting."
+          fi
+      
+      - name: Download UnBan rules
+        run: |
+          if curl -f -s -o rules/UnBan.list.new https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list && [[ -s rules/UnBan.list.new ]]; then
+            mv -f rules/UnBan.list.new rules/UnBan.list
+          else
+            echo "Failed to download or empty UnBan.list, exiting."
+          fi
+
+      - name: Download ADDReject rules
+        run: |
+          if curl -f -s -o rules/ADDReject.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt && [[ -s rules/ADDReject.txt ]]; then
+            if curl -f -s -o rules/Ads.list https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list && [[ -s rules/Ads.list ]]; then
+              echo "" > rules/ADD.list.new
+              while IFS= read -r line; 
+              do
+                domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
+                if [[ $domain =~ ^\+\. ]]
+                then
+                  # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
+                  domain=${domain:2}
+                  echo "DOMAIN-SUFFIX,$domain" >> rules/ADD.list.new
+                else
+                  # 添加 "DOMAIN,"
+                  echo "DOMAIN,$domain" >> rules/ADD.list.new
+                fi
+              done < <(tail -n +2 rules/ADDReject.txt)
+              echo >> rules/Ads.list
+              cat rules/ADD.list.new rules/Ads.list > rules/ADDReject.list.new
+              sed -i '/^$/d' rules/ADDReject.list.new
+              mv rules/ADDReject.list.new rules/ADDReject.list
+              rm -f rules/Ads.list rules/ADDReject.txt rules/ADD.list.new
+              else
+              echo "Failed to download or empty Ads.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty ADDReject.txt, exiting."
+          fi
+
+      - name: Download TldNoCN rules
+        run: |
+          if curl -f -s -o rules/TldNoCN.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt && [[ -s rules/TldNoCN.txt ]]; then
+            echo "" > rules/TldNoCN.list.new
+            while IFS= read -r line; 
+            do
+              domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
+              if [[ $domain =~ ^\+\. ]]
+              then
+                # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
+                domain=${domain:2}
+                echo "DOMAIN-SUFFIX,$domain" >> rules/TldNoCN.list.new
+              else
+                # 添加 "DOMAIN,"
+                echo "DOMAIN,$domain" >> rules/TldNoCN.list.new
+              fi
+            done < <(tail -n +2 rules/TldNoCN.txt)
+            mv -f rules/TldNoCN.list.new rules/TldNoCN.list
+            sed -i '/^$/d' rules/TldNoCN.list
+            rm -f rules/TldNoCN.txt 
+          else
+            echo "Failed to download or empty TldNoCN.txt, exiting."
+          fi
+
+      - name: Download GeoIP2-CN rules
+        run: |
+          if curl -f -s -o rules/GeoIP2-CN.list.new https://raw.githubusercontent.com/Hackl0us/GeoIP2-CN/release/CN-ip-cidr.txt && [[ -s rules/GeoIP2-CN.list.new ]]; then
+            sed -i '/^[0-9.]\+\/[0-9]\+$/!d' rules/GeoIP2-CN.list.new
+            sed -i 's/^/IP-CIDR,/' rules/GeoIP2-CN.list.new
+            sed -i 's/$/,no-resolve/' rules/GeoIP2-CN.list.new
+            mv -f rules/GeoIP2-CN.list.new rules/GeoIP2-CN.list
+          else
+            echo "Failed to download or empty GeoIP2-CN.txt, exiting."
+          fi
+
+      - name: Download CERTNET rules
+        run: |
+          if curl -f -s -o rules/CERTNETV4.txt https://ispip.clang.cn/cernet.txt && [[ -s rules/CERTNETV4.txt ]] && curl -f -s -o rules/CERTNETV6.txt https://ispip.clang.cn/cernet_ipv6.txt && [[ -s rules/CERTNETV6.txt ]]; then
+            sed -i '/^[0-9.]\+\/[0-9]\+$/!d' rules/CERTNETV4.txt
+            sed -i 's/^/IP-CIDR,/' rules/CERTNETV4.txt
+            sed -i 's/$/,no-resolve/' rules/CERTNETV4.txt
+            echo >> rules/CERTNETV4.txt
+            sed -i '/^[0-9a-fA-F:]\+\/[0-9]\+$/!d' rules/CERTNETV6.txt
+            sed -i 's/^/IP-CIDR6,/' rules/CERTNETV6.txt
+            sed -i 's/$/,no-resolve/' rules/CERTNETV6.txt
+            cat rules/CERTNETV4.txt rules/CERTNETV6.txt > rules/CERTNET.list.new
+            mv -f rules/CERTNET.list.new rules/CERTNET.list
+            rm -f rules/CERTNETV4.txt rules/CERTNETV6.txt
+          else
+            echo "Failed to download or empty CERTNETV4.txt or CERTNETV6.txt, exiting."
+          fi
+      - name: Download Download rules
+        run: |
+          if curl -f -s -o rules/ACLDownload.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list && [[ -s rules/ACLDownload.list ]]; then
+            if curl -f -s -o rules/PrivateTracker.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PrivateTracker/PrivateTracker.list && [[ -s rules/PrivateTracker.list ]]; then
+              echo >> rules/ACLDownload.list
+              cat rules/ACLDownload.list rules/PrivateTracker.list > rules/Download.list.new
+              mv -f rules/Download.list.new rules/Download.list
+              rm -f rules/ACLDownload.list rules/PrivateTracker.list
+            else
+              echo "Failed to download or empty Download.list, exiting."
+            fi
+          else
+            echo "Failed to download or empty ACLDownload.list, exiting."
+          fi
+
+      - name: Add changes to the repository
+        run: |
+          git add .
+          git status
+
+      - name: Commit and push changes
+        run: |
+          git commit -m "Loyalsoldier-rule-update" -a
+          git push

@@ -1,0 +1,106 @@
+# 这个列表会强制直连且在本规则中具有最高优先级
+
+# WIN重定向网页
+URL-REGEX,^https?:\/\/(www\.)?msftconnecttest\.com\/redirect
+DOMAIN-SUFFIX,msftconnecttest.com
+
+# 一些影视站
+DOMAIN-SUFFIX,sbzyplay.com
+DOMAIN-SUFFIX,v6.pub
+
+# 某些可能影响其他工作的网站
+DOMAIN-SUFFIX,tebex.io
+DOMAIN-SUFFIX,leigod.com
+DOMAIN-SUFFIX,ddnsto.com
+DOMAIN-SUFFIX,yuque.com
+DOMAIN-KEYWORD,greencloud
+DOMAIN-SUFFIX,greencloudvps.com
+DOMAIN-SUFFIX,kodcloud.com
+DOMAIN-SUFFIX,qiduo.net
+DOMAIN-KEYWORD,qiduo
+DOMAIN-SUFFIX,go.synn.cc
+DOMAIN-SUFFIX,ldxmcloud.com
+DOMAIN-SUFFIX,leshivideoplayurl.com
+DOMAIN-SUFFIX,huishij.com
+DOMAIN-SUFFIX,jsjiexi.com
+DOMAIN-SUFFIX,subojiexi.com
+DOMAIN-SUFFIX,49zyplayerurl.com
+DOMAIN-SUFFIX,alipan.com
+DOMAIN-SUFFIX,lanzouc.com
+DOMAIN-SUFFIX,123pan.com
+DOMAIN-SUFFIX,cn.download.nvidia.com
+DOMAIN-SUFFIX,verysync.cn
+DOMAIN-SUFFIX,mirrors.tuna.tsinghua.edu.cn
+DOMAIN-SUFFIX,nsloop.com
+DOMAIN-SUFFIX,uulap.com
+DOMAIN-SUFFIX,z100.vip
+
+# PTDownload
+DOMAIN-SUFFIX,pttime.org
+DOMAIN-SUFFIX,hitpt.com
+DOMAIN-SUFFIX,tjupt.org
+PROCESS-NAME,qbittorrent
+PROCESS-NAME,transmission
+
+# 镜像网站
+DOMAIN-SUFFIX,mirror.ghproxy.com
+DOMAIN-SUFFIX,gh.wsh.best
+DOMAIN-SUFFIX,hub.fgit.mxtrans.net
+DOMAIN-SUFFIX,github.moeyy.xyz
+DOMAIN-SUFFIX,ghproxy.net
+DOMAIN-SUFFIX,githubfast.com
+DOMAIN-SUFFIX,hub.incept.pw
+DOMAIN-SUFFIX,hub.incept.pw
+DOMAIN-SUFFIX,kkgithub.com
+DOMAIN-SUFFIX,gitclone.com
+
+# IPV6Test
+DOMAIN-SUFFIX,test-ipv6.com
+DOMAIN-SUFFIX,ipv6-test.ch
+DOMAIN-KEYWORD,ipv6-test
+DOMAIN-KEYWORD,ipv6test
+DOMAIN-KEYWORD,testipv6
+DOMAIN-KEYWORD,test-ipv6
+DOMAIN-KEYWORD,IPV6-TEST
+DOMAIN-KEYWORD,IPV6TEST
+DOMAIN-KEYWORD,TESTIPV6
+DOMAIN-KEYWORD,TEST-IPV6
+DOMAIN-KEYWORD,IPV6-test
+DOMAIN-KEYWORD,IPV6test
+DOMAIN-KEYWORD,test-IPV6
+DOMAIN-KEYWORD,testIPV6
+DOMAIN-KEYWORD,IPV6-Test
+DOMAIN-KEYWORD,IPV6Test
+DOMAIN-KEYWORD,Test-IPV6
+DOMAIN-KEYWORD,TestIPV6
+
+# EDU
+DOMAIN-SUFFIX,lan.upc.edu.cn
+DOMAIN-SUFFIX,wlan.upc.edu.cn
+DOMAIN-SUFFIX,v.upc.edu.cn
+
+IP-CIDR,121.251.251.0/24,no-resolve
+IP-CIDR,223.5.5.0/24,no-resolve
+IP-CIDR,119.29.29.0/24,no-resolve
+IP-CIDR6,2400:da00::6666/64,no-resolve
+IP-CIDR6,240c::6666/64,no-resolve
+
+PROCESS-NAME,BitComet,DIRECT
+PROCESS-NAME,NetTransport,DIRECT
+PROCESS-NAME,qbittorrent,DIRECT
+PROCESS-NAME,Thunder,DIRECT
+PROCESS-NAME,transmission-daemon,DIRECT
+PROCESS-NAME,transmission-qt,DIRECT
+PROCESS-NAME,uTorrent,DIRECT
+PROCESS-NAME,WebTorrent,DIRECT
+PROCESS-NAME,Folx,DIRECT
+PROCESS-NAME,NetTransport,DIRECT
+PROCESS-NAME,qbittorrent,DIRECT
+PROCESS-NAME,Thunder,DIRECT
+PROCESS-NAME,Transmission,DIRECT
+PROCESS-NAME,transmission,DIRECT
+PROCESS-NAME,uTorrent,DIRECT
+PROCESS-NAME,WebTorrent,DIRECT
+PROCESS-NAME,WebTorrent Helper,DIRECT
+PROCESS-NAME,leigod
+PROCESS-NAME,leigod.exe

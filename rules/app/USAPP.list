@@ -1,0 +1,100 @@
+# NAME: GoogleVoice
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2024-07-03 16:16:59
+# DOMAIN: 1
+# TOTAL: 1
+DOMAIN,lens.l.google.com
+
+# NAME: Twitter
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2024-07-03 16:16:10
+# DOMAIN-KEYWORD: 1
+# DOMAIN-SUFFIX: 25
+# IP-CIDR: 6
+# TOTAL: 32
+DOMAIN-SUFFIX,ads-twitter.com
+DOMAIN-SUFFIX,cms-twdigitalassets.com
+DOMAIN-SUFFIX,periscope.tv
+DOMAIN-SUFFIX,pscp.tv
+DOMAIN-SUFFIX,t.co
+DOMAIN-SUFFIX,tellapart.com
+DOMAIN-SUFFIX,tweetdeck.com
+DOMAIN-SUFFIX,twimg.co
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-SUFFIX,twimg.org
+DOMAIN-SUFFIX,twitpic.com
+DOMAIN-SUFFIX,twitter.biz
+DOMAIN-SUFFIX,twitter.com
+DOMAIN-SUFFIX,twitter.jp
+DOMAIN-SUFFIX,twittercommunity.com
+DOMAIN-SUFFIX,twitterflightschool.com
+DOMAIN-SUFFIX,twitterinc.com
+DOMAIN-SUFFIX,twitteroauth.com
+DOMAIN-SUFFIX,twitterstat.us
+DOMAIN-SUFFIX,twtrdns.net
+DOMAIN-SUFFIX,twttr.com
+DOMAIN-SUFFIX,twttr.net
+DOMAIN-SUFFIX,twvid.com
+DOMAIN-SUFFIX,vine.co
+DOMAIN-SUFFIX,x.com
+DOMAIN-KEYWORD,twitter
+IP-CIDR,192.133.76.0/22,no-resolve
+IP-CIDR,199.59.148.0/22,no-resolve
+IP-CIDR,199.96.56.0/21,no-resolve
+IP-CIDR,202.160.128.0/22,no-resolve
+IP-CIDR,209.237.192.0/19,no-resolve
+IP-CIDR,69.195.160.0/19,no-resolve
+
+# NAME: Instagram
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2024-07-03 16:16:12
+# DOMAIN-KEYWORD: 1
+# DOMAIN-SUFFIX: 3
+# TOTAL: 4
+DOMAIN-SUFFIX,cdninstagram.com
+DOMAIN-SUFFIX,instagr.am
+DOMAIN-SUFFIX,instagram.com
+DOMAIN-KEYWORD,instagram
+
+# US EDU
+DOMAIN-SUFFIX,umass.edu
+# 部分服务
+DOMAIN-KEYWORD,v2ex
+DOMAIN-SUFFIX,v2ex.com
+DOMAIN-SUFFIX,wise.com
+DOMAIN-KEYWORD,huggingface
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,hf.space
+DOMAIN-SUFFIX,t-mobile.com
+DOMAIN-SUFFIX,ultramobile.com
+DOMAIN-SUFFIX,llmsresearch.com
+DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,iknowu.top
+DOMAIN,image.iswsh.com
+DOMAIN,search.iswsh.com
+DOMAIN,souai.iswsh.com
+DOMAIN,sub.wsh.best
+DOMAIN,voice.google.com
+DOMAIN-SUFFIX,voice.google.com
+DOMAIN,voice.telephony.goog
+DOMAIN-SUFFIX,zotero.org
+DOMAIN-SUFFIX,us-east-1.amazonaws.com
+DOMAIN-SUFFIX,namesilo.com
+DOMAIN-SUFFIX,cosmotown.com
+DOMAIN-SUFFIX,spaceship.com
+IP-CIDR,66.94.0.0/19,no-resolve
+IP-CIDR,206.29.177.36/32,no-resolve
+IP-CIDR,208.54.0.0/16,no-resolve
+# VPS
+IP-CIDR,23.92.0.0/14,no-resolve
+IP-CIDR,148.130.0.0/14,no-resolve
+IP-CIDR,198.22.0.0/14,no-resolve
+IP-CIDR,216.44.0.0/14,no-resolve
+IP-CIDR6,2607:f130::/32,no-resolve
+
