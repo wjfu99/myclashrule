@@ -5,6 +5,8 @@ DOMAIN-SUFFIX,fenqubiao.com
 DOMAIN-KEYWORD,cnki.net
 ## 万方
 DOMAIN-KEYWORD,wanfangdata
+## 超星发现
+DOMAIN-SUFFIX,zhizhen.com
 ## 法律数据库
 DOMAIN-KEYWORD,pkulaw
 DOMAIN-KEYWORD,westlawchina
