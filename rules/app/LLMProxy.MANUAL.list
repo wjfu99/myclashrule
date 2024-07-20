@@ -6,3 +6,6 @@ DOMAIN-SUFFIX,poe.com
 DOMAIN-KEYWORD,cohere
 # coze
 DOMAIN-SUFFIX,coze.com
+# JetBrains AI 
+DOMAIN-SUFFIX,grazie.ai
+DOMAIN-SUFFIX,grazie.aws.intellij.net
