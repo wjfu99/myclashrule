@@ -35,18 +35,15 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     - https://1.1.1.1/dns-query
+    - https://dns.ipv6dns.com/dns-query
   default-nameserver:
     - 223.5.5.5
     - 1.1.1.1
-    - [2402:4e00::0000]
-    - [2400:da00::6666]
   nameserver:
     - system
     - dhcp://system
     - 119.29.29.29
     - 223.5.5.5
-    - [2402:4e00::0000]
-    - [2400:da00::6666]
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
     - https://dns.ipv6dns.com/dns-query
