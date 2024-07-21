@@ -39,6 +39,7 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 1.1.1.1
+    - 119.29.29.29
   nameserver:
     - system
     - dhcp://system
