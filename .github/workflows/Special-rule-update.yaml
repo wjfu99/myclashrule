@@ -144,6 +144,11 @@ jobs:
           cp rules/app/UKAPP.MANUAL.list rules/app/UKAPP.list.new
           mv -f rules/app/UKAPP.list.new rules/app/UKAPP.list
 
+      - name: Download NorthwestEuropeAPP rules
+        run: |
+          cp rules/app/NorthwestEurope.MANUAL.list rules/app/NorthwestEurope.list.new
+          mv -f rules/app/NorthwestEurope.list.new rules/app/NorthwestEurope.list
+
       - name: Download JPAPP rules
         run: |
           cp rules/app/JPAPP.MANUAL.list rules/app/JPAPP.list.new
