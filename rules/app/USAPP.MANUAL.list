@@ -1,3 +1,5 @@
+# Meta补充
+DOMAIN-SUFFIX,meta.ai
 # US EDU
 DOMAIN-SUFFIX,umass.edu
 # 部分服务
@@ -37,4 +39,3 @@ IP-CIDR,148.130.0.0/14,no-resolve
 IP-CIDR,198.22.0.0/14,no-resolve
 IP-CIDR,216.44.0.0/14,no-resolve
 IP-CIDR6,2607:f130::/32,no-resolve
-
