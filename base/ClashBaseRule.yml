@@ -90,6 +90,7 @@ dns:
       - '+.intercom.io'
       - '+.live.com'
       - '+.livekit.cloud'
+      - '+.meta.ai'
       - '+.microsoft.com'
       - '+.microsoftapp.net'
       - '+.minecraft.net'
