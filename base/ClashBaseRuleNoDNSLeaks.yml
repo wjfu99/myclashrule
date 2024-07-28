@@ -55,7 +55,7 @@ dns:
     - https://dns.ipv6dns.com/dns-query
   fallback-filter:
     geoip: true
-    geoip-code: "!CN"
+    geoip-code: !CN
     geosite:
       - CN
     domain:
