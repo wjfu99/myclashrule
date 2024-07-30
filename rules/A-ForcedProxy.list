@@ -3,5 +3,6 @@ DOMAIN-SUFFIX,ghcr1production.blob.core.windows.net
 DOMAIN-SUFFIX,repo.anaconda.com
 DOMAIN-SUFFIX,ffqla.net
 DOMAIN-SUFFIX,help.minecraft.net
-# DNSCheck
 DOMAIN-SUFFIX,dl.google.com
+# 豆包海外版CICI
+DOMAIN-SUFFIX,ciciai.com
