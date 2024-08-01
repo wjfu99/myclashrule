@@ -35,7 +35,6 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     - https://1.1.1.1/dns-query
-    - https://dns.ipv6dns.com/dns-query
   default-nameserver:
     - 223.5.5.5
     - 1.1.1.1
@@ -47,12 +46,9 @@ dns:
     - 223.5.5.5
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://dns.ipv6dns.com/dns-query
   fallback:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - https://[2001:4860:4860::64]/dns-query
-    - https://[2606:4700:4700::1111]/dns-query
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
   fallback-filter:
     geoip: false
     geoip-code: CN
