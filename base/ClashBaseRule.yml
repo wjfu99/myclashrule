@@ -40,7 +40,6 @@ dns:
     - 1.1.1.1
     - 119.29.29.29
   nameserver:
-    - system
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   fallback:
