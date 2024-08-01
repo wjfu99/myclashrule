@@ -41,7 +41,6 @@ dns:
     - 119.29.29.29
   nameserver:
     - system
-    - dhcp://eth0
     - 119.29.29.29
     - 223.5.5.5
     - https://doh.pub/dns-query
