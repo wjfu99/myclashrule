@@ -42,9 +42,12 @@ dns:
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh-pure.onedns.net/dns-query
   fallback:
     - https://8.8.8.8/dns-query
     - https://1.1.1.1/dns-query
+    - https://doh.opendns.com/dns-query
+    - https://dns.quad9.net/dns-query
   fallback-filter:
     geoip: false
     geoip-code: CN
