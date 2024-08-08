@@ -133,8 +133,10 @@ jobs:
                   rm -f rules/app/GoogleVoice.list rules/app/TwitterAndX.list rules/app/Facebook.list rules/app/Instagram.list
                 else
                   echo "Failed to download or empty Instagram.list, exiting."
+                fi
               else
                 echo "Failed to download or empty Facebook.list, exiting."
+              fi
             else
               echo "Failed to download or empty GoogleVoice.list, exiting."
             fi
