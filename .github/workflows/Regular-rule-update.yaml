@@ -183,6 +183,14 @@ jobs:
             echo "Failed to download or empty GeoIP2-CN.txt, exiting."
           fi
 
+      - name: Download AS-CN-IP rules
+        run: |
+          if  curl -f -s -o rules/AS-CN-IP.list.new https://raw.githubusercontent.com/DH-Teams/DH-Geo_AS_IP_CN/main/Geo_AS_IP_CN_All_Surge.list && [[ -s rules/AS-CN-IP.list.new ]]; then
+            mv -f rules/AS-CN-IP.list.new rules/AS-CN-IP.list
+          else
+            echo "Failed to download or empty AS-CN-IP.list, exiting."
+          fi
+
       - name: Download CERTNET rules
         run: |
           if curl -f -s -o rules/CERTNETV4.txt https://ispip.clang.cn/cernet.txt && [[ -s rules/CERTNETV4.txt ]] && curl -f -s -o rules/CERTNETV6.txt https://ispip.clang.cn/cernet_ipv6.txt && [[ -s rules/CERTNETV6.txt ]]; then
