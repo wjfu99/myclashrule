@@ -229,5 +229,5 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git commit -m "Loyalsoldier-rule-update" -a
+          git commit -m "Regular-rule-update" -a
           git push
