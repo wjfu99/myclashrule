@@ -9,6 +9,8 @@ DOMAIN-SUFFIX,coze.com
 # JetBrains AI 
 DOMAIN-SUFFIX,grazie.ai
 DOMAIN-SUFFIX,grazie.aws.intellij.net
+# MetaAI
+DOMAIN-SUFFIX,meta.ai
 # KLing可灵
 DOMAIN-SUFFIX,klingai.com
 # Deepseek
