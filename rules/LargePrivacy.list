@@ -17,6 +17,7 @@ DOMAIN-SUFFIX,service-jnkldbbg-1319821727.gz.apigw.tencentcs.com
 DOMAIN-SUFFIX,oj9veovs5n6u.51522zzwIwIbb.top
 ## ACA
 DOMAIN-SUFFIX,api.acaisbest.shop
+DOMAIN-SUFFIX,api.acaisbest.online
 ## Foosber
 DOMAIN-SUFFIX,xn--eckvarq8ld5k.xn--zckq7gxe.xn--tckwe
 DOMAIN-SUFFIX,サブスクライブ.スチーム.コム
@@ -30,7 +31,7 @@ DOMAIN-SUFFIX,www9.bigairport-sixteenth-sub.top
 DOMAIN-SUFFIX,sus.echonetwork.shop
 ## 赔钱机场
 DOMAIN-SUFFIX,xn--cp3a08l.com
-DOMAIN-SUFFIX,赔钱.com
+DOMAIN-SUFFIX,赔钱.comapi.acaisbest.online
 ## 其他机场
 DOMAIN-SUFFIX,webget.yfjc.xyz
 DOMAIN-SUFFIX,cdn.1454250.xyz
@@ -44,4 +45,5 @@ DOMAIN-SUFFIX,万和涂装.com
 DOMAIN-SUFFIX,xn--chqu2nzsxv3y.com
 DOMAIN-SUFFIX,dogss-host.store
 DOMAIN-SUFFIX,api.yun.ovodisk.com
+DOMAIN-SUFFIX,sub3.yukihasu.top
 IPCIDR,45.88.192.25/32,no-resolve
