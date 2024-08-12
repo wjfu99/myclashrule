@@ -641,6 +641,8 @@ DOMAIN-KEYWORD,instagram
 
 # US EDU
 DOMAIN-SUFFIX,umass.edu
+DOMAIN-SUFFIX,cvtc.edu
+DOMAIN-SUFFIX,sunybroome.edu
 # 部分服务
 DOMAIN-KEYWORD,v2ex
 DOMAIN-SUFFIX,v2ex.com
