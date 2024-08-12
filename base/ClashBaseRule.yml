@@ -145,3 +145,12 @@ tun:
     - com.android.chrome
   exclude-package:
     - com.android.captiveportallogin
+    
+proxy-groups:
+- name: "direct"
+  proxies:
+  - DIRECT
+  lazy: false
+  timeout: 5000
+  max-failed-times: 5
+  disable-udp: false
