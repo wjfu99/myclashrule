@@ -122,24 +122,24 @@ jobs:
             echo "Failed to download or empty GameDownload.list, exiting."
           fi
 
-      - name: Download CNAPP rules
-        run: |
-          if  curl -f -s -o rules/app/Meituan.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MeiTuan/MeiTuan.list && [[ -s rules/app/Meituan.list ]]; then
-            echo >> rules/app/Meituan.list
-            if  curl -f -s -o rules/app/WeChat.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.list && [[ -s rules/app/WeChat.list ]]; then
-              echo >> rules/app/WeChat.list
-              cat rules/app/Meituan.list rules/app/WeChat.list > rules/app/CNAPP.list.new
-              echo "# other" >> rules/app/CNAPP.list.new
-              echo "DOMAIN-SUFFIX,hcaptcha.com" >> rules/app/CNAPP.list.new
-              mv -f rules/app/CNAPP.list.new rules/app/CNAPP.list
-              rm -f rules/app/WeChat.list
-            else
-              echo "Failed to download or empty WeChat.list, exiting."
-            fi
-            rm -f rules/app/Meituan.list
-          else
-            echo "Failed to download or empty Meituan.list, exiting."
-          fi
+      # - name: Download CNAPP rules
+      #   run: |
+      #     if  curl -f -s -o rules/app/Meituan.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MeiTuan/MeiTuan.list && [[ -s rules/app/Meituan.list ]]; then
+      #       echo >> rules/app/Meituan.list
+      #       if  curl -f -s -o rules/app/WeChat.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.list && [[ -s rules/app/WeChat.list ]]; then
+      #         echo >> rules/app/WeChat.list
+      #         cat rules/app/Meituan.list rules/app/WeChat.list > rules/app/CNAPP.list.new
+      #         echo "# other" >> rules/app/CNAPP.list.new
+      #         echo "DOMAIN-SUFFIX,hcaptcha.com" >> rules/app/CNAPP.list.new
+      #         mv -f rules/app/CNAPP.list.new rules/app/CNAPP.list
+      #         rm -f rules/app/WeChat.list
+      #       else
+      #         echo "Failed to download or empty WeChat.list, exiting."
+      #       fi
+      #       rm -f rules/app/Meituan.list
+      #     else
+      #       echo "Failed to download or empty Meituan.list, exiting."
+      #     fi
 
       - name: Download USAPP rules
         run: |
