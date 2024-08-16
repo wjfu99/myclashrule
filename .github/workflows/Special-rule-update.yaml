@@ -153,8 +153,14 @@ jobs:
                   echo >> rules/app/Instagram.list
                   if  curl -f -s -o rules/app/Reddit.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.list && [[ -s rules/app/Reddit.list ]]; then
                     echo >> rules/app/Reddit.list
-                    cat rules/app/TwitterAndX.list rules/app/GoogleVoice.list rules/app/Facebook.list rules/app/Instagram.list rules/app/Reddit.list rules/app/USAPP.MANUAL.list > rules/app/USAPP.list.new
-                    mv -f rules/app/USAPP.list.new rules/app/USAPP.list
+                    if  curl -f -s -o rules/app/USMedia.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/USMedia/USMedia.list && [[ -s rules/app/USMedia.list ]]; then
+                      echo >> rules/app/USMedia.list
+                      cat rules/app/TwitterAndX.list rules/app/GoogleVoice.list rules/app/Facebook.list rules/app/Instagram.list rules/app/Reddit.list rules/app/USMedia.list rules/app/USAPP.MANUAL.list > rules/app/USAPP.list.new
+                      mv -f rules/app/USAPP.list.new rules/app/USAPP.list
+                      rm -f rules/app/USMedia.list
+                    else
+                      echo "Failed to download or empty USMedia.list, exiting."
+                    fi
                     rm -f rules/app/Reddit.list
                   else
                     echo "Failed to download or empty Reddit.list, exiting."
@@ -178,8 +184,14 @@ jobs:
 
       - name: Download UKAPP rules
         run: |
-          cp rules/app/UKAPP.MANUAL.list rules/app/UKAPP.list.new
-          mv -f rules/app/UKAPP.list.new rules/app/UKAPP.list
+          if  curl -f -s -o rules/app/UKMedia.list https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/UKMedia/UKMedia.list && [[ -s rules/app/UKMedia.list ]]; then
+            echo >> rules/app/UKMedia.list
+            cat rules/app/UKMedia.list rules/app/UKAPP.MANUAL.list > rules/app/UKAPP.list.new
+            mv -f rules/app/UKAPP.list.new rules/app/UKAPP.list
+            rm -f rules/app/UKMedia.list
+          else
+            echo "Failed to download or empty UKMedia.list, exiting."
+          fi
 
       - name: Download NorthwestEuropeAPP rules
         run: |
