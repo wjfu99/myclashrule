@@ -78,10 +78,11 @@ jobs:
               echo >> rules/ChinaMax.list
               cat rules/Direct.list rules/ChinaMax.list > rules/DirectDomain.list.new
               mv -f rules/DirectDomain.list.new rules/DirectDomain.list
-              rm -f rules/Direct.txt rules/Direct.list rules/ChinaMax.list.new
+              rm -f rules/Direct.list rules/ChinaMax.list.new
             else
               echo "Failed to download or empty ChinaMax.list, exiting."
             fi
+            rm -f rules/Direct.txt
           else
             echo "Failed to download or empty Direct.txt, exiting."
           fi
