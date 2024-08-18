@@ -79,6 +79,9 @@ DOMAIN-KEYWORD,colab
 DOMAIN-KEYWORD,developerprofiles
 DOMAIN-KEYWORD,generativelanguage
 
+# cf认证
+DOMAIN-SUFFIX,challenges.cloudflare.com
+
 # LLM竞技场
 DOMAIN-SUFFIX,lmsys.org
 # poe
