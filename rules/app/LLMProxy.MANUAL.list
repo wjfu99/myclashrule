@@ -1,3 +1,6 @@
+# cf认证
+DOMAIN-SUFFIX,challenges.cloudflare.com
+
 # LLM竞技场
 DOMAIN-SUFFIX,lmsys.org
 # poe
