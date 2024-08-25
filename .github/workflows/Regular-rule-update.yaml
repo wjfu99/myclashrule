@@ -31,29 +31,26 @@ jobs:
             echo "Failed to download or empty LocalAreaNetwork.list, exiting."
           fi
 
-
       - name: Download MainProxy rules
         run: |
-          if curl -f -s -o rules/MainProxy.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt && [[ -s rules/MainProxy.txt ]]; then
-            echo "" > rules/MainProxy.list.new
-            while IFS= read -r line; 
-            do
-              domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
-              if [[ $domain =~ ^\+\. ]]
-              then
-                # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
-                domain=${domain:2}
-                echo "DOMAIN-SUFFIX,$domain" >> rules/MainProxy.list.new
-              else
-                # 添加 "DOMAIN,"
-                echo "DOMAIN,$domain" >> rules/MainProxy.list.new
-              fi
-            done < <(tail -n +2 rules/MainProxy.txt)
+          if curl -f -s -o rules/Global.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/c52e17fa611af8438b3145baee3022a37e298a40/rule/Clash/Global/Global.list && [[ -s rules/Global.list ]]; then
+            echo >> rules/Global.list
+            cat rules/Global.list > rules/MainProxy.list.new
             mv -f rules/MainProxy.list.new rules/MainProxy.list
-            sed -i '/^$/d' rules/MainProxy.list
-            rm -f rules/MainProxy.txt
+            rm -f rules/Global.list
           else
-            echo "Failed to download or empty MainProxy.txt, exiting."
+            echo "Failed to download or empty Global.list, exiting."
+          fi
+          
+      - name: Download GFWDomain rules
+        run: |
+          if curl -f -s -o rules/Proxy.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/c52e17fa611af8438b3145baee3022a37e298a40/rule/Clash/Proxy/Proxy.list && [[ -s rules/Proxy.list ]]; then
+            echo >> rules/Proxy.list
+            cat rules/Proxy.list > rules/GFWDomain.list.new
+            mv -f rules/GFWDomain.list.new rules/GFWDomain.list
+            rm -f rules/Proxy.list
+          else
+            echo "Failed to download or empty Proxy.list, exiting."
           fi
 
       - name: Download ChinaDirect rules
@@ -62,33 +59,9 @@ jobs:
             echo >> rules/ChinaMax.list
             cat rules/ChinaMax.list > rules/ChinaDirect.list.new
             mv -f rules/ChinaDirect.list.new rules/ChinaDirect.list
-            rm -f rules/ChinaMax.list.new
+            rm -f rules/ChinaMax.list
           else
             echo "Failed to download or empty ChinaMax.list, exiting."
-          fi
-
-      - name: Download GFWDomain rules
-        run: |
-          if curl -f -s -o rules/GFWDomain.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt && [[ -s rules/GFWDomain.txt ]]; then
-            echo "" > rules/GFWDomain.list.new
-            while IFS= read -r line; 
-            do
-              domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
-              if [[ $domain =~ ^\+\. ]]
-              then
-                # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
-                domain=${domain:2}
-                echo "DOMAIN-SUFFIX,$domain" >> rules/GFWDomain.list.new
-              else
-                # 添加 "DOMAIN,"
-                echo "DOMAIN,$domain" >> rules/GFWDomain.list.new
-              fi
-            done < <(tail -n +2 rules/GFWDomain.txt)
-            mv -f rules/GFWDomain.list.new rules/GFWDomain.list
-            sed -i '/^$/d' rules/GFWDomain.list
-            rm -f rules/GFWDomain.txt 
-          else
-            echo "Failed to download or empty GFWDomain.txt, exiting."
           fi
       
       - name: Download UnBan rules
@@ -105,7 +78,7 @@ jobs:
             echo >> rules/Advertising.list
             cat rules/Advertising.list > rules/ADDReject.list.new
             mv -f rules/ADDReject.list.new rules/ADDReject.list
-            rm -f rules/Advertising.list.new
+            rm -f rules/Advertising.list
           else
             echo "Failed to download or empty Advertising.list, exiting."
           fi
