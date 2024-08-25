@@ -11,6 +11,10 @@
 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
 
 **等**多方规则，并依据个人情况进行调整更改
+## 版本内容
+* **clash-rule**版本使用白名单模式，对CN进行分流，漏网之鱼默认代理，含有完整广告拦截及自建落地
+* **clash-rule-general**版本没有自建落地，其他与clash-rule相同
+* **clash-rule-mini**版本为解决苹果网络扩展50M内存限制，对代理进行分流，漏网之鱼默认直连，含有Lite版广告拦截及自建落地
 
 ## 备忘小记
 
