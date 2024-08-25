@@ -101,32 +101,13 @@ jobs:
 
       - name: Download ADDReject rules
         run: |
-          if curl -f -s -o rules/ADDReject.txt https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt && [[ -s rules/ADDReject.txt ]]; then
-            if curl -f -s -o rules/Ads.list https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list && [[ -s rules/Ads.list ]]; then
-              echo "" > rules/ADD.list.new
-              while IFS= read -r line; 
-              do
-                domain=$(echo $line | sed "s/  - '//" | sed "s/'//" | sed 's/-//g' | sed "s/'//g" | sed "s/ //g")
-                if [[ $domain =~ ^\+\. ]]
-                then
-                  # 去掉 "+." 前缀，并添加 "DOMAIN-SUFFIX,"
-                  domain=${domain:2}
-                  echo "DOMAIN-SUFFIX,$domain" >> rules/ADD.list.new
-                else
-                  # 添加 "DOMAIN,"
-                  echo "DOMAIN,$domain" >> rules/ADD.list.new
-                fi
-              done < <(tail -n +2 rules/ADDReject.txt)
-              echo >> rules/Ads.list
-              cat rules/ADD.list.new rules/Ads.list > rules/ADDReject.list.new
-              sed -i '/^$/d' rules/ADDReject.list.new
-              mv rules/ADDReject.list.new rules/ADDReject.list
-              rm -f rules/Ads.list rules/ADDReject.txt rules/ADD.list.new
-              else
-              echo "Failed to download or empty Ads.list, exiting."
-            fi
+          if curl -f -s -o rules/Advertising.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising.list && [[ -s rules/Advertising.list ]]; then
+            echo >> rules/Advertising.list
+            cat rules/Advertising.list > rules/ADDReject.list.new
+            mv -f rules/ADDReject.list.new rules/ADDReject.list
+            rm -f rules/Advertising.list.new
           else
-            echo "Failed to download or empty ADDReject.txt, exiting."
+            echo "Failed to download or empty Advertising.list, exiting."
           fi
 
       - name: Download TldNoCN rules
