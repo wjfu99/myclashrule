@@ -50,7 +50,7 @@ dns:
     - https://doh.opendns.com/dns-query
     - https://dns.quad9.net/dns-query
   fallback-filter:
-    geoip: false
+    geoip: true
     geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
