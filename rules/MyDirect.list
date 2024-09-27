@@ -1,70 +1,14 @@
-# 机场及订阅
-## SYN
-DOMAIN-SUFFIX,acl.syyn.pw
-## NICEDUCK
-DOMAIN-SUFFIX,sub.niceduck.cloud
-## 夜煞云
-DOMAIN-SUFFIX,sub3.download-hiccup.xyz
-DOMAIN-SUFFIX,su.iplcnetwork.com
-## 蛋挞云
-DOMAIN-SUFFIX,eggtartcloud.biz
-## TN
-DOMAIN-SUFFIX,sub-01.767564.xyz
-## 阿拉丁
-DOMAIN-SUFFIX,music.easygourl.xyz
-## 全球通
-DOMAIN-SUFFIX,service-jnkldbbg-1319821727.gz.apigw.tencentcs.com
-## 尼尔云
-DOMAIN-SUFFIX,oj9veovs5n6u.51522zzwIwIbb.top
-## Foosber
-DOMAIN-SUFFIX,xn--eckvarq8ld5k.xn--zckq7gxe.xn--tckwe
-DOMAIN-SUFFIX,サブスクライブ.スチーム.コム
-## 樱花猫
-DOMAIN-SUFFIX,d2f42a86-2a1f-49b5-bd2f-d2154daa6a09.com
-## 魔戒
-DOMAIN-SUFFIX,mojie.app
-## 大机场
-DOMAIN-SUFFIX,www9.bigairport-sixteenth-sub.top
-## Echo
-DOMAIN-SUFFIX,echonetwork.shop
-DOMAIN-SUFFIX,echonetwork.club
-## 赔钱机场
-DOMAIN-SUFFIX,xn--cp3a08l.com
-DOMAIN-SUFFIX,赔钱.comapi.acaisbest.online
-## 其他机场
-DOMAIN-SUFFIX,webget.yfjc.xyz
-DOMAIN-SUFFIX,cdn.1454250.xyz
-DOMAIN-SUFFIX,api-baobaog.rest
-DOMAIN-SUFFIX,cn-shanghai.fcapp.run
-DOMAIN-SUFFIX,link.dingyueapi.net
-DOMAIN-SUFFIX,mesl.gov.ltd
-DOMAIN-SUFFIX,sub2.riolu.one
-DOMAIN-SUFFIX,xsus.wiki
-DOMAIN-SUFFIX,万和涂装.com
-DOMAIN-SUFFIX,xn--chqu2nzsxv3y.com
-DOMAIN-SUFFIX,dogss-host.store
-DOMAIN-SUFFIX,api.yun.ovodisk.com
-DOMAIN-SUFFIX,sub3.yukihasu.top
-IPCIDR,45.88.192.25/32,no-resolve
 
-# SDWAN
-DST-PORT,9993,DIRECT
-SRC-PORT,9993,DIRECT
-DST-PORT,9995,DIRECT
-SRC-PORT,9995,DIRECT
-PROCESS-NAME,zerotier,DIRECT
-PROCESS-NAME,zerotier-one,DIRECT
-PROCESS-NAME,zerotier-cli,DIRECT
-PROCESS-NAME,zerotier-one_x64.exe,DIRECT
-PROCESS-NAME,tailscale,DIRECT
-PROCESS-NAME,tailscaled,DIRECT
-PROCESS-NAME,tailscale.exe,DIRECT
-PROCESS-NAME,tailscaled.exe,DIRECT
-PROCESS-NAME,tailscale-ipn,DIRECT
-PROCESS-NAME,tailscale-ipn.exe,DIRECT
-PROCESS-NAME,Tailscale,DIRECT
-PROCESS-NAME,Tailscale Service,DIRECT
-PROCESS-NAME,Tailscale.exe,DIRECT
-PROCESS-NAME,Tailscale Service.exe,DIRECT
-# 兜底LAN
-IP-CIDR,192.168.0.0/16,no-resolve
+DOMAIN-SUFFIX,cloudfare.com
+DOMAIN-SUFFIX,baozimh.com
+DOMAIN-SUFFIX,69shuba.com
+DOMAIN-SUFFIX,pan666.net
+
+# Base on process name
+PROCESS-NAME,Spark
+PROCESS-NAME,Easydict
+PROCESS-NAME,WeChat
+
+# Some Email services
+DOMAIN-SUFFIX,outlook.com
+DOMAIN-SUFFIX,outlookmobile.com
