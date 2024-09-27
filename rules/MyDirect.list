@@ -5,7 +5,7 @@ DOMAIN-SUFFIX,69shuba.com
 DOMAIN-SUFFIX,pan666.net
 
 # Base on process name
-PROCESS-NAME,Spark
+# PROCESS-NAME,Spark
 PROCESS-NAME,Easydict
 PROCESS-NAME,WeChat
 
