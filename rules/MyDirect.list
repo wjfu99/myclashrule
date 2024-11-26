@@ -9,6 +9,7 @@ DOMAIN-SUFFIX,dandanplay.net
 # PROCESS-NAME,Spark
 PROCESS-NAME,Easydict
 PROCESS-NAME,WeChat
+PROCESS-NAME,WeChatAppEx Helper
 
 # Some Email services
 DOMAIN-SUFFIX,outlook.com
