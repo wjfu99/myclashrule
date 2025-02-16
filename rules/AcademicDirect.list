@@ -48,6 +48,8 @@ DOMAIN-KEYWORD,springernature
 DOMAIN-SUFFIX,springer.com
 DOMAIN-SUFFIX,link.springer.com
 DOMAIN-SUFFIX,bmccancer.biomedcentral.com
+## AAAS 旗下
+DOMAIN-SUFFIX, science.org
 ## JSTOR 旗下
 DOMAIN-SUFFIX,jstor.org
 ## SAGE
