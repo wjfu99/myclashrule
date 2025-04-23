@@ -14,3 +14,4 @@ PROCESS-NAME,WeChatAppEx Helper
 # Some Email services
 DOMAIN-SUFFIX,outlook.com
 DOMAIN-SUFFIX,outlookmobile.com
+DOMAIN-SUFFIX,overleaf.com
