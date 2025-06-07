@@ -1,7 +1,7 @@
 # NAME: Copilot
 # AUTHOR: blackmatrix7
 # REPO: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2024-07-03 16:18:30
+# UPDATED: 2025-06-06 09:20:02
 # DOMAIN: 20
 # DOMAIN-KEYWORD: 1
 # DOMAIN-SUFFIX: 26
@@ -66,7 +66,7 @@ DOMAIN-SUFFIX,copilot-telemetry.githubusercontent.com
 # NAME: Bing
 # AUTHOR: blackmatrix7
 # REPO: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2024-07-03 16:18:28
+# UPDATED: 2025-06-06 09:20:00
 # DOMAIN-SUFFIX: 9
 # TOTAL: 9
 DOMAIN-SUFFIX,bing.com
@@ -82,7 +82,7 @@ DOMAIN-SUFFIX,bingworld.com
 # NAME: MicrosoftEdge
 # AUTHOR: blackmatrix7
 # REPO: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2024-07-03 16:17:44
+# UPDATED: 2025-06-06 09:18:54
 # DOMAIN: 4
 # TOTAL: 4
 DOMAIN,edge.activity.windows.com
