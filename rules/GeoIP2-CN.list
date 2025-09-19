@@ -4911,6 +4911,7 @@ IP-CIDR,158.79.32.0/19,no-resolve
 IP-CIDR,158.79.64.0/18,no-resolve
 IP-CIDR,158.79.128.0/17,no-resolve
 IP-CIDR,158.140.252.0/23,no-resolve
+IP-CIDR,158.140.255.0/24,no-resolve
 IP-CIDR,159.27.0.0/16,no-resolve
 IP-CIDR,159.75.0.0/16,no-resolve
 IP-CIDR,159.226.0.0/16,no-resolve
