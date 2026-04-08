@@ -10,6 +10,8 @@ DOMAIN-SUFFIX,dandanplay.net
 PROCESS-NAME,Easydict
 PROCESS-NAME,WeChat
 PROCESS-NAME,WeChatAppEx Helper
+PROCESS-NAME,MSTeams
+PROCESS-NAME,Microsoft Teams WebView Helper
 
 # Some Email services
 DOMAIN-SUFFIX,outlook.com
