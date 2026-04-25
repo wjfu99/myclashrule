@@ -60,7 +60,6 @@ IP-CIDR,202.4.128.0/19,no-resolve
 IP-CIDR,202.38.2.0/23,no-resolve
 IP-CIDR,202.38.64.0/18,no-resolve
 IP-CIDR,202.38.140.0/23,no-resolve
-IP-CIDR,202.38.146.0/23,no-resolve
 IP-CIDR,202.38.184.0/21,no-resolve
 IP-CIDR,202.38.192.0/18,no-resolve
 IP-CIDR,202.106.125.0/24,no-resolve
