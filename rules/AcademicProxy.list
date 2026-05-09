@@ -26,3 +26,6 @@ DOMAIN-KEYWORD,seerstat.imsweb.com
 # google scholar
 DOMAIN-SUFFIX,scholar.google.com
 DOMAIN-SUFFIX,scholar.googleusercontent.com
+
+# overleaf
+DOMAIN-SUFFIX,overleaf.com
