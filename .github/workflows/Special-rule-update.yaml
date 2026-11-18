@@ -38,6 +38,28 @@ jobs:
             echo "Failed to download or empty Docker.list, exiting."
           fi
 
+      - name: Download Antigravity rules
+        run: |
+          if curl -f -s -o rules/app/google-deepmind.txt https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-deepmind.list && [[ -s rules/app/google-deepmind.txt ]]; then
+            echo "# NAME: Antigravity & Google DeepMind" > rules/app/Antigravity.list.new
+            echo "# REPO: https://github.com/MetaCubeX/meta-rules-dat" >> rules/app/Antigravity.list.new
+            while IFS= read -r line || [[ -n "$line" ]]; do
+              line=$(echo "$line" | tr -d '\r ')
+              [[ -z "$line" || "$line" =~ ^# ]] && continue
+              if [[ "$line" =~ ^\+\. ]]; then
+                echo "DOMAIN-SUFFIX,${line:2}" >> rules/app/Antigravity.list.new
+              else
+                echo "DOMAIN,$line" >> rules/app/Antigravity.list.new
+              fi
+            done < rules/app/google-deepmind.txt
+            echo >> rules/app/Antigravity.list.new
+            cat rules/app/Antigravity.MANUAL.list >> rules/app/Antigravity.list.new
+            mv -f rules/app/Antigravity.list.new rules/app/Antigravity.list
+            rm -f rules/app/google-deepmind.txt
+          else
+            echo "Failed to download or empty google-deepmind.list, exiting."
+          fi
+
       - name: Download LLM(NoMSCopilot) rules
         run: |
           if  curl -f -s -o rules/app/OpenAI.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list && [[ -s rules/app/OpenAI.list ]]; then
@@ -47,7 +69,7 @@ jobs:
               echo >> rules/app/Claude.list
               if  curl -f -s -o rules/app/Gemini.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.list && [[ -s rules/app/Gemini.list ]]; then
                 echo >> rules/app/Gemini.list
-                cat rules/app/OpenAI.list rules/app/Claude.list rules/app/Gemini.list rules/app/LLMProxy.MANUAL.list > rules/app/LLMProxy.list.new
+                cat rules/app/OpenAI.list rules/app/Claude.list rules/app/Gemini.list rules/app/Antigravity.list rules/app/LLMProxy.MANUAL.list > rules/app/LLMProxy.list.new
                 mv -f rules/app/LLMProxy.list.new rules/app/LLMProxy.list
                 rm -f rules/app/Gemini.list
               else

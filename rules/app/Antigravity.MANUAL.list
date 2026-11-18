@@ -1,0 +1,41 @@
+# > Google Antigravity 补充域名 (尚未进入 v2fly/google-deepmind 的端点)
+DOMAIN-SUFFIX,antigravity.google.com
+DOMAIN,daily-cloudcode-pa.sandbox.googleapis.com
+DOMAIN,preprod-daily-cloudcode-pa.sandbox.googleapis.com
+DOMAIN,agentaicode.googleapis.com
+DOMAIN-KEYWORD,antigravity
+
+# > Antigravity 客户端自动更新 (Cloud Run)
+DOMAIN,antigravity-hub-auto-updater-974169037036.us-central1.run.app
+DOMAIN,antigravity-ide-auto-updater-974169037036.us-central1.run.app
+DOMAIN,antigravity-cli-auto-updater-974169037036.us-central1.run.app
+
+# > Antigravity Enterprise / Gemini Enterprise (GCP 绑定与多区域端点)
+DOMAIN,businessaicode.googleapis.com
+DOMAIN,businessaicode.us.rep.googleapis.com
+DOMAIN,businessaicode.eu.rep.googleapis.com
+DOMAIN,businessaicode.mtls.googleapis.com
+DOMAIN,aiplatform.googleapis.com
+DOMAIN,aiplatform.us.rep.googleapis.com
+DOMAIN,aiplatform.eu.rep.googleapis.com
+DOMAIN,aiplatform.mtls.googleapis.com
+DOMAIN,discoveryengine.googleapis.com
+DOMAIN,us-discoveryengine.googleapis.com
+DOMAIN,eu-discoveryengine.googleapis.com
+DOMAIN,discoveryengine.mtls.googleapis.com
+DOMAIN,us-discoveryengine.mtls.googleapis.com
+DOMAIN,eu-discoveryengine.mtls.googleapis.com
+
+# > Antigravity 客户端与核心服务进程名匹配 (Mihomo)
+PROCESS-NAME,Antigravity
+PROCESS-NAME,Antigravity.exe
+PROCESS-NAME,Antigravity Helper
+PROCESS-NAME,Antigravity Helper (Plugin)
+PROCESS-NAME,Antigravity Helper (Renderer)
+PROCESS-NAME,language_server
+PROCESS-NAME,language_server_macos_arm
+PROCESS-NAME,language_server_macos_x64
+PROCESS-NAME,language_server_windows_x64.exe
+PROCESS-NAME,language_server_linux_x64
+PROCESS-NAME,agy
+PROCESS-NAME,agy.exe
