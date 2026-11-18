@@ -1,21 +1,60 @@
-# NAME: Antigravity & Google Gemini Supplement
-# UPDATED: 2026-11-18
-# DESCRIPTION: Google Antigravity (App / IDE / CLI) & Google DeepMind / Gemini rules
-
-# > Google Antigravity 核心域名与后端推理 API
-DOMAIN-SUFFIX,antigravity.google
-DOMAIN-SUFFIX,antigravity.google.com
-DOMAIN-SUFFIX,antigravity-unleash.goog
-DOMAIN,antigravity.googleapis.com
-DOMAIN,antigravity-pa.googleapis.com
+# NAME: Antigravity & Google DeepMind
+# REPO: https://github.com/MetaCubeX/meta-rules-dat
+DOMAIN,ai.google.dev
+DOMAIN,alkalicore-pa.clients6.google.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
+DOMAIN,geminiweb-pa.clients.google.com
+DOMAIN,geminiweb-pa.clients6.google.com
+DOMAIN,appsgenaiserver-pa.clients.google.com
+DOMAIN,appsgenaiserver-pa.clients6.google.com
+DOMAIN,appsgenaiserver-pa.googleapis.com
+DOMAIN,cloudaicompanion.googleapis.com
 DOMAIN,cloudcode-pa.googleapis.com
 DOMAIN,daily-cloudcode-pa.googleapis.com
+DOMAIN,notebooklm-pa.googleapis.com
+DOMAIN,notebooklm.googleapis.com
+DOMAIN,antigravity-pa.googleapis.com
+DOMAIN,antigravity.googleapis.com
+DOMAIN-SUFFIX,notebook.google
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,antigravity-unleash.goog
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,opal.google
+DOMAIN-SUFFIX,flow.google
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,labs.google
+DOMAIN-SUFFIX,ai.studio
+DOMAIN-SUFFIX,jules.google
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,gemini.google
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,notebook.google.com
+DOMAIN-SUFFIX,labs.google.com
+DOMAIN-SUFFIX,gemini.gstatic.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,jules.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,stitch.withgoogle.com
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
+DOMAIN-SUFFIX,flow.google.com
+DOMAIN-SUFFIX,aisandbox-pa.googleapis.com
+DOMAIN-SUFFIX,aicode.googleapis.com
+DOMAIN-SUFFIX,aida.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,opal.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,geller-pa.googleapis.com
+DOMAIN-SUFFIX,labstailwind.pa.googleapis.com
+
+# > Google Antigravity 补充域名 (尚未进入 v2fly/google-deepmind 的端点)
+DOMAIN-SUFFIX,antigravity.google.com
 DOMAIN,daily-cloudcode-pa.sandbox.googleapis.com
 DOMAIN,preprod-daily-cloudcode-pa.sandbox.googleapis.com
-DOMAIN,cloudaicompanion.googleapis.com
-DOMAIN,aicode.googleapis.com
 DOMAIN,agentaicode.googleapis.com
-DOMAIN,aida.googleapis.com
 DOMAIN-KEYWORD,antigravity
 
 # > Antigravity 客户端自动更新 (Cloud Run)
@@ -38,40 +77,6 @@ DOMAIN,eu-discoveryengine.googleapis.com
 DOMAIN,discoveryengine.mtls.googleapis.com
 DOMAIN,us-discoveryengine.mtls.googleapis.com
 DOMAIN,eu-discoveryengine.mtls.googleapis.com
-
-# > Google DeepMind / Gemini / AI Studio / NotebookLM 补充规则 (补齐 ACL4SSR 缺失项)
-DOMAIN-SUFFIX,gemini.google
-DOMAIN-SUFFIX,gemini.gstatic.com
-DOMAIN-SUFFIX,ai.studio
-DOMAIN-SUFFIX,aistudio.google.com
-DOMAIN-SUFFIX,aistudiocdn.com
-DOMAIN-SUFFIX,notebook.google
-DOMAIN-SUFFIX,notebook.google.com
-DOMAIN-SUFFIX,notebooklm.google
-DOMAIN-SUFFIX,notebooklm.google.com
-DOMAIN-SUFFIX,jules.google
-DOMAIN-SUFFIX,jules.google.com
-DOMAIN-SUFFIX,labs.google
-DOMAIN-SUFFIX,labs.google.com
-DOMAIN-SUFFIX,opal.google
-DOMAIN-SUFFIX,opal.google.com
-DOMAIN-SUFFIX,flow.google
-DOMAIN-SUFFIX,flow.google.com
-DOMAIN-SUFFIX,stitch.withgoogle.com
-DOMAIN,alkalicore-pa.clients6.google.com
-DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
-DOMAIN,geminiweb-pa.clients.google.com
-DOMAIN,geminiweb-pa.clients6.google.com
-DOMAIN,geminiweb-pa.googleapis.com
-DOMAIN,appsgenaiserver-pa.clients.google.com
-DOMAIN,appsgenaiserver-pa.clients6.google.com
-DOMAIN,appsgenaiserver-pa.googleapis.com
-DOMAIN,notebooklm-pa.googleapis.com
-DOMAIN,notebooklm.googleapis.com
-DOMAIN,geller-pa.googleapis.com
-DOMAIN,robinfrontend-pa.googleapis.com
-DOMAIN,aisandbox-pa.googleapis.com
-DOMAIN,labstailwind.pa.googleapis.com
 
 # > Antigravity 客户端与核心服务进程名匹配 (Mihomo)
 PROCESS-NAME,Antigravity

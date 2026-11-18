@@ -78,6 +78,99 @@ DOMAIN-KEYWORD,colab
 DOMAIN-KEYWORD,developerprofiles
 DOMAIN-KEYWORD,generativelanguage
 
+# NAME: Antigravity & Google DeepMind
+# REPO: https://github.com/MetaCubeX/meta-rules-dat
+DOMAIN,ai.google.dev
+DOMAIN,alkalicore-pa.clients6.google.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
+DOMAIN,geminiweb-pa.clients.google.com
+DOMAIN,geminiweb-pa.clients6.google.com
+DOMAIN,appsgenaiserver-pa.clients.google.com
+DOMAIN,appsgenaiserver-pa.clients6.google.com
+DOMAIN,appsgenaiserver-pa.googleapis.com
+DOMAIN,cloudaicompanion.googleapis.com
+DOMAIN,cloudcode-pa.googleapis.com
+DOMAIN,daily-cloudcode-pa.googleapis.com
+DOMAIN,notebooklm-pa.googleapis.com
+DOMAIN,notebooklm.googleapis.com
+DOMAIN,antigravity-pa.googleapis.com
+DOMAIN,antigravity.googleapis.com
+DOMAIN-SUFFIX,notebook.google
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,antigravity-unleash.goog
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,opal.google
+DOMAIN-SUFFIX,flow.google
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,labs.google
+DOMAIN-SUFFIX,ai.studio
+DOMAIN-SUFFIX,jules.google
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,gemini.google
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,notebook.google.com
+DOMAIN-SUFFIX,labs.google.com
+DOMAIN-SUFFIX,gemini.gstatic.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,jules.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,stitch.withgoogle.com
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com
+DOMAIN-SUFFIX,flow.google.com
+DOMAIN-SUFFIX,aisandbox-pa.googleapis.com
+DOMAIN-SUFFIX,aicode.googleapis.com
+DOMAIN-SUFFIX,aida.googleapis.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,opal.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,geller-pa.googleapis.com
+DOMAIN-SUFFIX,labstailwind.pa.googleapis.com
+
+# > Google Antigravity 补充域名 (尚未进入 v2fly/google-deepmind 的端点)
+DOMAIN-SUFFIX,antigravity.google.com
+DOMAIN,daily-cloudcode-pa.sandbox.googleapis.com
+DOMAIN,preprod-daily-cloudcode-pa.sandbox.googleapis.com
+DOMAIN,agentaicode.googleapis.com
+DOMAIN-KEYWORD,antigravity
+
+# > Antigravity 客户端自动更新 (Cloud Run)
+DOMAIN,antigravity-hub-auto-updater-974169037036.us-central1.run.app
+DOMAIN,antigravity-ide-auto-updater-974169037036.us-central1.run.app
+DOMAIN,antigravity-cli-auto-updater-974169037036.us-central1.run.app
+
+# > Antigravity Enterprise / Gemini Enterprise (GCP 绑定与多区域端点)
+DOMAIN,businessaicode.googleapis.com
+DOMAIN,businessaicode.us.rep.googleapis.com
+DOMAIN,businessaicode.eu.rep.googleapis.com
+DOMAIN,businessaicode.mtls.googleapis.com
+DOMAIN,aiplatform.googleapis.com
+DOMAIN,aiplatform.us.rep.googleapis.com
+DOMAIN,aiplatform.eu.rep.googleapis.com
+DOMAIN,aiplatform.mtls.googleapis.com
+DOMAIN,discoveryengine.googleapis.com
+DOMAIN,us-discoveryengine.googleapis.com
+DOMAIN,eu-discoveryengine.googleapis.com
+DOMAIN,discoveryengine.mtls.googleapis.com
+DOMAIN,us-discoveryengine.mtls.googleapis.com
+DOMAIN,eu-discoveryengine.mtls.googleapis.com
+
+# > Antigravity 客户端与核心服务进程名匹配 (Mihomo)
+PROCESS-NAME,Antigravity
+PROCESS-NAME,Antigravity.exe
+PROCESS-NAME,Antigravity Helper
+PROCESS-NAME,Antigravity Helper (Plugin)
+PROCESS-NAME,Antigravity Helper (Renderer)
+PROCESS-NAME,language_server
+PROCESS-NAME,language_server_macos_arm
+PROCESS-NAME,language_server_macos_x64
+PROCESS-NAME,language_server_windows_x64.exe
+PROCESS-NAME,language_server_linux_x64
+PROCESS-NAME,agy
+PROCESS-NAME,agy.exe
 # cf认证
 DOMAIN-SUFFIX,challenges.cloudflare.com
 
