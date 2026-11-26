@@ -123,7 +123,13 @@ IP-CIDR6,240a:a00f::/32,no-resolve
 IP-CIDR6,240a:a010::/28,no-resolve
 IP-CIDR6,240a:a020::/27,no-resolve
 IP-CIDR6,240a:a040::/26,no-resolve
-IP-CIDR6,240a:a080::/25,no-resolve
+IP-CIDR6,240a:a080::/27,no-resolve
+IP-CIDR6,240a:a0a0::/28,no-resolve
+IP-CIDR6,240a:a0b0::/30,no-resolve
+IP-CIDR6,240a:a0b4::/31,no-resolve
+IP-CIDR6,240a:a0b7::/32,no-resolve
+IP-CIDR6,240a:a0b8::/29,no-resolve
+IP-CIDR6,240a:a0c0::/26,no-resolve
 IP-CIDR6,240a:a100::/24,no-resolve
 IP-CIDR6,240a:a200::/23,no-resolve
 IP-CIDR6,240a:a400::/22,no-resolve
